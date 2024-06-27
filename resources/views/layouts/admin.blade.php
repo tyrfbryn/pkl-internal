@@ -28,22 +28,26 @@
   <link href="{{asset('sass/semi-dark.css')}}" rel="stylesheet">
   <link href="{{asset('sass/bordered-theme.css')}}" rel="stylesheet">
   <link href="{{asset('sass/responsive.css')}}" rel="stylesheet">
-
+    @yield('styles')
 </head>
 
 <body>
 
   <!--start header-->
-@include('layouts.admin.navbar')
+  @include('layouts.admin.navbar')
   <!--end top header-->
 
 
    <!--start sidebar-->
-@include('layouts.admin.sidebar')
+  @include('layouts.admin.sidebar')
 <!--end sidebar-->
 
   <!--start main wrapper-->
-
+  <main class="main-wrapper">
+    <div class="main-content">
+        @yield('content')
+    </div>
+  </main>
   <!--end main wrapper-->
 
   <!--start overlay-->
@@ -270,6 +274,8 @@
   <script>
 	   new PerfectScrollbar(".user-list")
   </script>
+@stack('script')
+@include('sweetalert::alert')
 
 </body>
 

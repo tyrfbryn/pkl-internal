@@ -2,6 +2,8 @@
 
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\FrontControllers;
+use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
     return view('welcome');
@@ -12,8 +14,15 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
 // cek template admin
-Route::get('/tes', function () {
-    return view('layouts.admin');
+// Route::get('/tes', function () {
+//     return view('layouts.admin');
+
+    Route::group(['prefix' => 'admin', 'middleware' => ['auth', IsAdmin::class]], function () {
+    Route::get('/', function () {
+        return view('layouts.admin.index');
+    });
+    // untul Route backend lainnya
+    Route::resource('user', App\Http\Controllers\UserController::class);
 });
 
 // // Route Admin(Backend)
@@ -23,13 +32,12 @@ Route::get('/tes', function () {
 //     });
 // });
 
-
 // cek template front
 Route::get('tes', function () {
     return view('layouts.front');
 });
 
-Route::get('/', function () {
+Route::get('index', function () {
     return view('index');
 });
 Route::get('contact', function () {

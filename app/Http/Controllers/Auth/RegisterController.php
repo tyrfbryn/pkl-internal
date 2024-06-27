@@ -76,6 +76,6 @@ class RegisterController extends Controller
         $this->guard()->logout();
 
         // Redirect to the login page
-        return redirect($this->redirect())->with('status', 'Registration successful');
+        return redirect($this->redirectPath())->with('status', 'Registration successful');
     }
 }

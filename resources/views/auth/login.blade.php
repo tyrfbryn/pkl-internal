@@ -70,28 +70,26 @@
               </div>
 
               <div class="form-body mt-4">
-                <form class="row g-3" action=" {{route('login')}}" method="post">
+                <form class="row g-3" action="{{route('login')}}" method="post">
                     @csrf
                   <div class="col-12">
                     <label for="inputEmailAddress" class="form-label">Email</label>
-                    <input type="email" name="email" class="form-control" @error('email') is-invalid @enderror"
-                    id="inputEmailAddress" placeholder="jhon@example.com">
-                    @error('email')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                     @enderror
-                  </div>
+                    <input type="email" name="email" class="form-control  @error('name') is-invalid @enderror" id="inputEmailAddress" placeholder="jhon@example.com">
+                        @error('name')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                        @enderror
+                </div>
                   <div class="col-12">
                     <label for="inputChoosePassword" class="form-label">Password</label>
                     <div class="input-group" id="show_hide_password">
-                      <input type="password" name="password" class="form-control"  @error('email') is-invalid @enderror"
-                       id="inputChoosePassword" value="12345678" placeholder="Enter Password">
-                       @error('password')
-                    <span class="invalid-feedback" role="alert">
-                        <strong>{{ $message }}</strong>
-                    </span>
-                     @enderror
+                      <input type="password" name="password" class="form-control  @error('name') is-invalid @enderror" id="inputChoosePassword" value="12345678" placeholder="Enter Password">
+                      @error('password')
+                      <span class="invalid-feedback" role="alert">
+                          <strong>{{ $message }}</strong>
+                      </span>
+                  @enderror
                       <a href="javascript:;" class="input-group-text bg-transparent"><i class="bi bi-eye-slash-fill"></i></a>
                     </div>
                   </div>
@@ -105,12 +103,12 @@
                   </div>
                   <div class="col-12">
                     <div class="d-grid">
-                      <button type="submit" class="btn btn-grd-primary">Login</button>
+                      <button type="submit" class="btn btn-grd-primary">{{ __('login') }}</button>
                     </div>
                   </div>
                   <div class="col-12">
                     <div class="text-start">
-                      <p class="mb-0"><a href="{{url('register')}}">Sign up here</a>
+                      <p class="mb-0"> <a href="{{url('register')}}">Sign up here</a>
                       </p>
                     </div>
                   </div>
