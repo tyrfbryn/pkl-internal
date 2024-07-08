@@ -1,7 +1,8 @@
+<!--start sidebar-->
 <aside class="sidebar-wrapper" data-simplebar="true">
     <div class="sidebar-header">
       <div class="logo-icon">
-        <img src="{{asset('assets/images/logo-icon.png')}}" class="logo-img" alt="">
+        <img src="assets/images/logo-icon.png" class="logo-img" alt="">
       </div>
       <div class="logo-name flex-grow-1">
         <h5 class="mb-0">Maxton</h5>
@@ -14,18 +15,28 @@
         <!--navigation-->
         <ul class="metismenu" id="sidenav">
           <li>
-            <a href="{{url('/admin')}}">
+            <a href="javascript:;" class="has-arrow">
               <div class="parent-icon"><i class="material-icons-outlined">home</i>
               </div>
               <div class="menu-title">Dashboard</div>
             </a>
+
           </li>
           <li>
-            <a href="{{url('/admin/user')}}">
-              <div class="parent-icon"><i class="material-icons-outlined">widgets</i>
+            <a href="{{route('user.index')}}">
+              <div class="parent-icon"><i class="material-icons-outlined">person</i>
               </div>
-              <div class="menu-title">Widgets</div>
+              <div class="menu-title">User Management</div>
             </a>
+
+          </li>
+          <li>
+            <a href="{{route('kategori.index')}}">
+              <div class="parent-icon"><i class="material-icons-outlined">person</i>
+              </div>
+              <div class="menu-title">Kategori</div>
+            </a>
+
           </li>
           <li>
             <a class="has-arrow" href="javascript:;">
@@ -336,3 +347,4 @@
         <!--end navigation-->
     </div>
   </aside>
+<!--end sidebar-->

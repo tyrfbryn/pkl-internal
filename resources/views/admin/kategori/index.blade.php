@@ -22,7 +22,7 @@
     </div>
     <div class="ms-auto">
         <div class="btn-group">
-            <a href="{{route('user.create')}}" class="btn btn-primary">Add Data</a>
+            <a href="{{route('kategori.create')}}" class="btn btn-primary">Add Data</a>
         </div>
     </div>
 </div>
@@ -37,48 +37,34 @@
                 <thead>
                     <tr>
                         <th>No</th>
-                        <th>Name</th>
-                        <th>email</th>
-                        <th>status</th>
-                        <th>opsi</th>
-
+                        <th>Nama</th>
+                        <th>deskripsi</th>
                         {{-- <th>Salary</th> --}}
                     </tr>
                 </thead>
                 <tbody>
                     @php $no = 1; @endphp
-                    @foreach ($users as $data)
-                    @if($loop->first)
-                    <tr>
-                            <td>{{$no++}}</td>
-                            <td>{{$data->name}}</td>
-                            <td>{{$data->email}}</td>
-                            <td>{{$data->isAdmin == 1 ? 'Admin' : 'User'}}</td>
-                            <td>
-                               <button class="btn btn-sm btn-danger" disabled>Can't Delete</button>
-                            </td>
-                        </tr>
-                        @else
+                    @foreach ($kategoris as $data)
+
 
                         <tr>
                             <td>{{$no++}}</td>
-                            <td>{{$data->name}}</td>
-                            <td>{{$data->email}}</td>
-                            <td>{{$data->isAdmin == 1 ? 'Admin' : 'User'}}</td>
+                            <td>{{$data->nama}}</td>
+                            <td>{{$data->deskripsi}}</td>
                             <td>
-                                <form action="{{route('user.destroy', $data->id)}}" method="post">
+                                <form action="{{route('kategori.destroy', $data->id)}}" method="post">
                                     @csrf
                                     @method('DELETE')
-                                    <a href="{{route('user.edit', $data->id)}}" class="btn btn-warning">
+                                    <a href="{{route('kategori.edit', $data->id)}}" class="btn btn-warning">
                                         Edit
                                     </a>
-                                    <a href="{{route('user.destroy', $data->id)}}" class="btn btn-danger" data-confirm-delete="true">
+                                    <a href="{{route('kategori.destroy', $data->id)}}" class="btn btn-danger" data-confirm-delete="true">
                                         Delete
                                     </a>
                                 </form>
                             </td>
                         </tr>
-                        @endif
+
                         @endforeach
 
                 </tbody>

@@ -3,6 +3,8 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\FrontControllers;
+use App\Http\Controllers\KategorisController;
+use App\Http\Controllers\ProdukController;
 use App\Http\Middleware\IsAdmin;
 
 Route::get('/', function () {
@@ -23,6 +25,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     });
     // untul Route backend lainnya
     Route::resource('user', App\Http\Controllers\UserController::class);
+    Route::resource('kategori', App\Http\Controllers\KategoriController::class);
+    Route::resource('produk', App\Http\Controllers\ProdukController::class);
 });
 
 // // Route Admin(Backend)

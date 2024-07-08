@@ -9,7 +9,7 @@
                         <h5>Edit</h5>
                     </div>
                     <div class="float-end">
-                        <a href="{{ route('user.index') }}" class="btn btn-sm btn-outline-primary">Kembali</a>
+                        <a href="{{ route('user.index') }}" class="btn btn-grd-primary px-4">Kembali</a>
                     </div>
                 </div>
 
@@ -54,8 +54,8 @@
                                 <option value="1" {{old('isAdmin')==1 ? 'selected' : ''}}>Admin</option>
                             </select>
                         </div>
-                    <button type="submit" class="btn btn-sm btn-primary">Simpan</button>
-                    <button type="reset" class="btn btn-sm btn-danger">Reset</button>
+                    <button type="submit" class="btn btn-grd-primary px-4">Simpan</button>
+                    <button type="reset" class="btn btn-grd-royal px-4">Reset</button>
                     </form>
                 </div>
             </div>

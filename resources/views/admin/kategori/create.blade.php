@@ -19,58 +19,43 @@
 </div>
 <!--end breadcrumb-->
 
-<h6 class="mb-0 text-uppercase">DataTable Example</h6>
+<h6 class="mb-0 text-uppercase">DataTable Kategori</h6>
 <hr>
 <div class="card">
                 <div class="card-header">
                     <div class="float-start">
-                        <h5>user</h5>
+                        <h5>kategori</h5>
                     </div>
                     <div class="float-end">
-                        <a href="{{ route('user.index') }}" class="btn btn-grd-primary px-4">Kembali</a>
+                        <a href="{{ route('kategori.index') }}" class="btn btn-grd-primary px-4">Kembali</a>
                     </div>
                 </div>
 
                 <div class="card-body">
-                    <form action="{{ route('user.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('kategori.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-2">
-                            <label class="form-label">Username</label>
-                            <input type="text" class="form-control @error('user') is-invalid @enderror" name="name"
-                            value="{{ old('user') }}" placeholder="UserName" required>
-                            @error('user')
+                            <label class="form-label">nama</label>
+                            <input type="text" class="form-control @error('kategori') is-invalid @enderror" name="nama"
+                            value="{{ old('kategori') }}" placeholder="nama" required>
+                            @error('kategori')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
                                 </span>
                             @enderror
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">Email</label>
-                            <input type="text" class="form-control" @error('email') is-invalid @enderror name="email"
-                            value="{{ old('email') }}" placeholder="email" required>
-                            @error('email')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div
-                        <div class="mb-2">
-                            <label class="form-label">Password</label>
-                            <input type="password" class="form-control" @error('password') is-invalid @enderror name="password"
-                            value="{{ old('password') }}" rows="3" placeholder="password" required></input>
-                            @error('password')
+                            <label class="form-label">deskripsi</label>
+                            <input type="text" class="form-control" @error('deskripsi') is-invalid @enderror name="deskripsi"
+                            value="{{ old('deskripsi') }}" placeholder="deskripsi" required>
+                            @error('deskripsi')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
                         </div>
-                        <div class="mb-2">
-                            <label class="form-label">Select Role</label>
-                            <select class="form-control" name="isAdmin" id="isAdmin" required>
-                                <option value="0" >User</option>
-                                <option value="1" >Admin</option>
-                            </select>
-                        </div>
+
+
                     <button type="submit" class="btn btn-grd-royal px-4">Simpan</button>
                     </form>
                 </div>
