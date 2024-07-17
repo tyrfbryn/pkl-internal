@@ -1,124 +1,206 @@
 @extends('layouts.front')
 @section('content')
 
-      <!-- breadcrumb-area -->
-      <section class="breadcrumb_area pt-60 pb-60 tp-breadcrumb_bg" data-background="{{asset('front/assets/img/banner/breadcrumb-01.jpg')}}">
-        <div class="container">
-           <div class="row align-items-center">
-              <div class="col-xl-7 col-lg-12 col-md-12 col-12">
-                 <div class="tp-breadcrumb">
-                    <div class="tp-breadcrumb__link mb-10">
-                       <span class="breadcrumb-item-active"><a href="index.html">Home</a></span>
-                       <span>Cart</span>
-                    </div>
-                    <h2 class="tp-breadcrumb__title">Product Cart</h2>
-                 </div>
-              </div>
-           </div>
+<section class="blog-banner-area" id="category">
+    <div class="container h-100">
+        <div class="blog-banner">
+            <div class="text-center">
+                <h1>Shopping Cart</h1>
+                <nav aria-label="breadcrumb" class="banner-breadcrumb">
+        <ol class="breadcrumb">
+          <li class="breadcrumb-item"><a href="#">Home</a></li>
+          <li class="breadcrumb-item active" aria-current="page">Shopping Cart</li>
+        </ol>
+      </nav>
+            </div>
         </div>
-     </section>
-     <!-- breadcrumb-area-end -->
-
-     <!-- cart area -->
-     <section class="cart-area pt-80 pb-80 wow fadeInUp" data-wow-duration=".8s" data-wow-delay=".2s">
-        <div class="container">
-        <div class="row">
-           <div class="col-12">
-                 <form action="#">
-                    <div class="table-content table-responsive">
-                       <table class="table">
-                             <thead>
-                                <tr>
-                                   <th class="product-thumbnail">Images</th>
-                                   <th class="cart-product-name">Courses</th>
-                                   <th class="product-price">Unit Price</th>
-                                   <th class="product-quantity">Quantity</th>
-                                   <th class="product-subtotal">Total</th>
-                                   <th class="product-remove">Remove</th>
-                                </tr>
-                             </thead>
-                             <tbody>
-                                <tr>
-                                   <td class="product-thumbnail">
-                                      <a href="shop-details.html"><img src="{{asset('front/assets/img/product/home-three/product-60.jpg')}}" alt="">
-                                      </a>
-                                   </td>
-                                   <td class="product-name">
-                                      <a href="shop-details.html">Evo Lightweight Granite Chair</a>
-                                   </td>
-                                   <td class="product-price">
-                                      <span class="amount">$130.00</span>
-                                   </td>
-                                   <td class="product-quantity">
-                                         <span class="cart-minus">-</span>
-                                         <input class="cart-input" type="text" value="1"/>
-                                         <span class="cart-plus">+</span>
-                                   </td>
-                                   <td class="product-subtotal">
-                                      <span class="amount">$130.00</span>
-                                   </td>
-                                   <td class="product-remove">
-                                      <a href="#"><i class="fa fa-times"></i></a>
-                                   </td>
-                                </tr>
-                                <tr>
-                                   <td class="product-thumbnail">
-                                      <a href="shop-details.html"><img src="{{asset('front/assets/img/product/home-one/product-8.jpg')}}"  alt="">
-                                      </a>
-                                   </td>
-                                   <td class="product-name">
-                                      <a href="shop-details.html">Miko Wooden Bluetooth Speaker</a>
-                                   </td>
-                                   <td class="product-price">
-                                      <span class="amount">$120.50</span>
-                                   </td>
-                                   <td class="product-quantity">
-                                         <span class="cart-minus">-</span>
-                                         <input class="cart-input" type="text" value="1"/>
-                                         <span class="cart-plus">+</span>
-                                   </td>
-                                   <td class="product-subtotal">
-                                      <span class="amount">$120.50</span>
-                                   </td>
-                                   <td class="product-remove">
-                                      <a href="#"><i class="fa fa-times"></i></a>
-                                   </td>
-                                </tr>
-                             </tbody>
-                       </table>
-                    </div>
-                    <div class="row">
-                       <div class="col-12">
-                             <div class="coupon-all">
-                                <div class="coupon">
-                                   <input id="coupon_code" class="input-text" name="coupon_code" value=""
-                                         placeholder="Coupon code" type="text">
-                                   <button class="tp-btn tp-color-btn banner-animation" name="apply_coupon" type="submit">Apply
-                                         Coupon</button>
+</div>
+</section>
+<section class="cart_area">
+    <div class="container">
+        <div class="cart_inner">
+            <div class="table-responsive">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th scope="col">Product</th>
+                            <th scope="col">Price</th>
+                            <th scope="col">Quantity</th>
+                            <th scope="col">Total</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img src="front/img/cart/cart1.png" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <p>Minimalistic shop for multipurpose use</p>
+                                    </div>
                                 </div>
-                                <div class="coupon2">
-                                   <button class="tp-btn tp-color-btn banner-animation" name="update_cart" type="submit">Update cart</button>
+                            </td>
+                            <td>
+                                <h5>$360.00</h5>
+                            </td>
+                            <td>
+                                <div class="product_count">
+                                    <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:"
+                                        class="input-text qty">
+                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                        class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+                                        class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
                                 </div>
-                             </div>
-                       </div>
-                    </div>
-                    <div class="row justify-content-end">
-                       <div class="col-md-5 ">
-                             <div class="cart-page-total">
-                                <h2>Cart totals</h2>
-                                <ul class="mb-20">
-                                   <li>Subtotal <span>$250.00</span></li>
-                                   <li>Total <span>$250.00</span></li>
-                                </ul>
-                                <a href="checkout.html" class="tp-btn tp-color-btn banner-animation">Proceed to Checkout</a>
-                             </div>
-                       </div>
-                    </div>
-                 </form>
-           </div>
-        </div>
-        </div>
-     </section>
-     <!-- cart area end-->
+                            </td>
+                            <td>
+                                <h5>$720.00</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img src="front/img/cart/cart2.png" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <p>Minimalistic shop for multipurpose use</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <h5>$360.00</h5>
+                            </td>
+                            <td>
+                                <div class="product_count">
+                                    <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:"
+                                        class="input-text qty">
+                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                        class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+                                        class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                                </div>
+                            </td>
+                            <td>
+                                <h5>$720.00</h5>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <div class="media">
+                                    <div class="d-flex">
+                                        <img src="front/img/cart/cart3.png" alt="">
+                                    </div>
+                                    <div class="media-body">
+                                        <p>Minimalistic shop for multipurpose use</p>
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                <h5>$360.00</h5>
+                            </td>
+                            <td>
+                                <div class="product_count">
+                                    <input type="text" name="qty" id="sst" maxlength="12" value="1" title="Quantity:"
+                                        class="input-text qty">
+                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst )) result.value++;return false;"
+                                        class="increase items-count" type="button"><i class="lnr lnr-chevron-up"></i></button>
+                                    <button onclick="var result = document.getElementById('sst'); var sst = result.value; if( !isNaN( sst ) &amp;&amp; sst > 0 ) result.value--;return false;"
+                                        class="reduced items-count" type="button"><i class="lnr lnr-chevron-down"></i></button>
+                                </div>
+                            </td>
+                            <td>
+                                <h5>$720.00</h5>
+                            </td>
+                        </tr>
+                        <tr class="bottom_button">
+                            <td>
+                                <a class="button" href="#">Update Cart</a>
+                            </td>
+                            <td>
 
-     @endsection
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <div class="cupon_text d-flex align-items-center">
+                                    <input type="text" placeholder="Coupon Code">
+                                    <a class="primary-btn" href="#">Apply</a>
+                                    <a class="button" href="#">Have a Coupon?</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <h5>Subtotal</h5>
+                            </td>
+                            <td>
+                                <h5>$2160.00</h5>
+                            </td>
+                        </tr>
+                        <tr class="shipping_area">
+                            <td class="d-none d-md-block">
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <h5>Shipping</h5>
+                            </td>
+                            <td>
+                                <div class="shipping_box">
+                                    <ul class="list">
+                                        <li><a href="#">Flat Rate: $5.00</a></li>
+                                        <li><a href="#">Free Shipping</a></li>
+                                        <li><a href="#">Flat Rate: $10.00</a></li>
+                                        <li class="active"><a href="#">Local Delivery: $2.00</a></li>
+                                    </ul>
+                                    <h6>Calculate Shipping <i class="fa fa-caret-down" aria-hidden="true"></i></h6>
+                                    <select class="shipping_select">
+                                        <option value="1">Bangladesh</option>
+                                        <option value="2">India</option>
+                                        <option value="4">Pakistan</option>
+                                    </select>
+                                    <select class="shipping_select">
+                                        <option value="1">Select a State</option>
+                                        <option value="2">Select a State</option>
+                                        <option value="4">Select a State</option>
+                                    </select>
+                                    <input type="text" placeholder="Postcode/Zipcode">
+                                    <a class="gray_btn" href="#">Update Details</a>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr class="out_button_area">
+                            <td class="d-none-l">
+
+                            </td>
+                            <td class="">
+
+                            </td>
+                            <td>
+
+                            </td>
+                            <td>
+                                <div class="checkout_btn_inner d-flex align-items-center">
+                                    <a class="gray_btn" href="#">Continue Shopping</a>
+                                    <a class="primary-btn ml-2" href="#">Proceed to checkout</a>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>\
+        </div>
+    </div>
+</section>
+ @endsection

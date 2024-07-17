@@ -11,7 +11,6 @@
             <ol class="breadcrumb mb-0 p-0">
                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Admin</li>
             </ol>
         </nav>
     </div>
@@ -25,9 +24,6 @@
                 <div class="card-header">
                     <div class="float-start">
                         <h5>produk</h5>
-                    </div>
-                    <div class="float-end">
-                        <a href="{{ route('produk.index') }}" class="btn btn-grd-primary px-4">Kembali</a>
                     </div>
                 </div>
 
@@ -44,20 +40,11 @@
                                 </span>
                             @enderror
                         </div>
+
                         <div class="mb-2">
-                            <label class="form-label">Masukan Slug</label>
-                            <input type="text" class="form-control" @error('slug') is-invalid @enderror name="slug"
-                            value="{{ old('slug') }}" placeholder="slug" required>
-                            @error('slug')
-                            <span class="invalid-feedback" role="alert">
-                                <strong>{{ $message }}</strong>
-                            </span>
-                            @enderror
-                        </div>
-                        <div class="mb-2">
-                            <label class="form-label">Masukan dest</label>
-                            <input type="text" class="form-control @error('produk') is-invalid @enderror" name="dest"
-                            value="{{ old('produk') }}" placeholder="dest" required>
+                            <label class="form-label">Masukan deskripsi</label>
+                            <input type="text" class="form-control @error('produk') is-invalid @enderror" name="deskripsi"
+                            value="{{ old('produk') }}" placeholder="deskripsi" required>
                             @error('produk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -65,9 +52,9 @@
                             @enderror
                         </div>
                         <div class="mb-2">
-                            <label class="form-label">masukan price</label>
-                            <input type="integer" class="form-control @error('produk') is-invalid @enderror" name="price"
-                            value="{{ old('produk') }}" placeholder="price" required>
+                            <label class="form-label">masukan harga</label>
+                            <input type="integer" class="form-control @error('produk') is-invalid @enderror" name="harga"
+                            value="{{ old('produk') }}" placeholder="harga" required>
                             @error('produk')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -85,16 +72,29 @@
                             @enderror
                         </div>
                         <div class="mb-3">
-                            <label for="">Nama Penulis</label>
+                            <label for="">Nama kategori</label>
                             <select name="id_kategori" id="" class="form-control">
                                 @foreach ($kategori as $item)
-                                    <option value="{{$item->id}}">{{ $item->nama }}</option>
+                                    <option value="{{$item->id}}">{{ $item->Kategori }}</option>
                                 @endforeach
                             </select>
                         </div>
+                        <div class="mb-3">
+                            <label class="form-label">Image</label>
+                            <input type="file" class="form-control @error('image') is-invalid @enderror" name="image"
+                                value="{{ old('image') }}" required></input>
+                            @error('image')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
 
 
-                    <button type="submit" class="btn btn-grd-royal px-4">Simpan</button>
+                        <div class="float-end mt-2">
+                            <button type="submit" class="btn btn-primary">Simpan</button>
+                            <a href="{{ route('produk.index') }}" class="btn btn-primary">Kembali</a>
+                        </div>
                     </form>
                 </div>
             </div>

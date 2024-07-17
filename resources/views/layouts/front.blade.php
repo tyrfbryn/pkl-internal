@@ -1,76 +1,43 @@
-<!doctype html>
-<html class="no-js" lang="zxx">
-   <head>
-      <meta charset="utf-8">
-      <meta http-equiv="x-ua-compatible" content="ie=edge">
-      <title>Ninico - Minimal eCommerce HTML Template</title>
-      <meta name="description" content="">
-      <meta name="viewport" content="width=device-width, initial-scale=1">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Aroma Shop - Home</title>
+	<link rel="icon" href="front/img/Fevicon.png" type="image/png">
+  <link rel="stylesheet" href="front/vendors/bootstrap/bootstrap.min.css">
+  <link rel="stylesheet" href="front/vendors/fontawesome/front/css/all.min.css">
+	<link rel="stylesheet" href="front/vendors/themify-icons/themify-icons.css">
+  <link rel="stylesheet" href="front/vendors/nice-select/nice-select.css">
+  <link rel="stylesheet" href="front/vendors/owl-carousel/owl.theme.default.min.css">
+  <link rel="stylesheet" href="front/vendors/owl-carousel/owl.carousel.min.css">
 
-      <!-- Place favicon.ico in the root directory -->
-      <link rel="shortcut icon" type="image/x-icon" href="{{asset('front/assets/img/logo/favicon.png')}}">
+  <link rel="stylesheet" href="front/css/style.css">
+</head>
+<body>
+  <!--================ Start Header Menu Area =================-->
+    @include('layouts.front.nav')
+	<!--================ End Header Menu Area =================-->
 
-      <!-- CSS here -->
-      <link rel="stylesheet" href="{{asset('front/assets/css/bootstrap.min.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/animate.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/swiper-bundle.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/slick.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/nice-select.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/fontawesome.min.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/magnific-popup.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/meanmenu.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/spacing.css')}}">
-      <link rel="stylesheet" href="{{asset('front/assets/css/main.css')}}">
-   </head>
-   <body>
+  <main class="site-main">
+    @yield('content')
+  </main>
 
-      <!-- preloader -->
-      <div id="preloader">
-         <div class="preloader">
-             <span></span>
-             <span></span>
-         </div>
-     </div>
-     <!-- preloader end  -->
 
-      <!-- Scroll-top -->
-         <button class="scroll-top scroll-to-target" data-target="html">
-            <i class="fas fa-angle-up"></i>
-         </button>
-      <!-- Scroll-top-end-->
-
-      <!-- header-area-start -->
-      @include('layouts.front.nav')
-      <!-- header-cart-end -->
-
-      <!-- main-area-start -->
-      <main>
-        @yield('content')
-      </main>
-      <!-- main-area-end -->
-
-      <!-- footer-area-start -->
-     @include('layouts.front.footer')
-      <!-- footer-area-end -->
+  <!--================ Start footer Area  =================-->
+	@include('layouts.front.footer')
+	<!--================ End footer Area  =================-->
 
 
 
-      <!-- JS here -->
-      <script src="{{asset('front/assets/js/jquery.js')}}"></script>
-      <script src="{{asset('front/assets/js/waypoints.js')}}"></script>
-      <script src="{{asset('front/assets/js/bootstrap.bundle.min.js')}}"></script>
-      <script src="{{asset('front/assets/js/swiper-bundle.js')}}"></script>
-      <script src="{{asset('front/assets/js/slick.js')}}"></script>
-      <script src="{{asset('front/assets/js/magnific-popup.js')}}"></script>
-      <script src="{{asset('front/assets/js/nice-select.js')}}"></script>
-      <script src="{{asset('front/assets/js/counterup.js')}}"></script>
-      <script src="{{asset('front/assets/js/wow.js')}}"></script>
-      <script src="{{asset('front/assets/js/isotope-pkgd.js')}}"></script>
-      <script src="{{asset('front/assets/js/imagesloaded-pkgd.js')}}"></script>
-      <script src="{{asset('front/assets/js/countdown.js')}}"></script>
-      <script src="{{asset('front/assets/js/ajax-form.js')}}"></script>
-      <script src="{{asset('front/assets/js/meanmenu.js')}}"></script>
-      <script src="{{asset('front/assets/js/jquery.knob.js')}}"></script>
-      <script src="{{asset('front/assets/js/main.js')}}"></script>
-   </body>
+  <script src="front/vendors/jquery/jquery-3.2.1.min.js"></script>
+  <script src="front/vendors/bootstrap/bootstrap.bundle.min.js"></script>
+  <script src="front/vendors/skrollr.min.js"></script>
+  <script src="front/vendors/owl-carousel/owl.carousel.min.js"></script>
+  <script src="front/vendors/nice-select/jquery.nice-select.min.js"></script>
+  <script src="front/vendors/jquery.ajaxchimp.min.js"></script>
+  <script src="front/vendors/mail-script.js"></script>
+  <script src="front/js/main.js"></script>
+</body>
 </html>

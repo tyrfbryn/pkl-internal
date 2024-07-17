@@ -70,12 +70,5 @@ class RegisterController extends Controller
         ]);
     }
 
-    protected function registered(\Illuminate\Http\Request $request, $user)
-    {
-        // log out the user after registracion
-        $this->guard()->logout();
-
-        // Redirect to the login page
-        return redirect($this->redirectPath())->with('status', 'Registration successful');
-    }
+     
 }

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
+use App\Models\Produk;
 class HomeController extends Controller
 {
     /**
@@ -23,11 +24,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        $produk = Produk::all();
+        
         $user = Auth::user();
         if ($user->isAdmin == 1) {
             return view('layouts.admin.index');
         } else {
-            return view('index');
+            return view('index', compact('produk'));
         }
     }
 }

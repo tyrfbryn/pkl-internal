@@ -46,19 +46,38 @@
                         </div>
                         <div class="mb-2">
                             <label class="form-label">Email</label>
-                            <input type="text" class="form-control" @error('email') is-invalid @enderror name="email"
+                            <input type="text" class="form-control @error('email') is-invalid @enderror" name="email"
                             value="{{ old('email') }}" placeholder="email" required>
                             @error('email')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>
                             @enderror
-                        </div
+                        <div class="mb-2">
+                            <label class="form-label">No Telepon</label>
+                            <input type="number" class="form-control @error('no_telp') is-invalid @enderror" name="no_telp"
+                            value="{{ old('no_telp') }}" placeholder="email" required>
+                            @error('no_telp')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
                         <div class="mb-2">
                             <label class="form-label">Password</label>
-                            <input type="password" class="form-control" @error('password') is-invalid @enderror name="password"
+                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password"
                             value="{{ old('password') }}" rows="3" placeholder="password" required></input>
                             @error('password')
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $message }}</strong>
+                            </span>
+                            @enderror
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Alamat</label>
+                            <input type="text" class="form-control @error('alamat') is-invalid @enderror" name="alamat"
+                            value="{{ old('alamat') }}" placeholder="alamat" required>
+                            @error('alamat')
                             <span class="invalid-feedback" role="alert">
                                 <strong>{{ $message }}</strong>
                             </span>

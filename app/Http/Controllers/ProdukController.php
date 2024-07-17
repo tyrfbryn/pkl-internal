@@ -6,7 +6,7 @@ use App\Models\Produk;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
 use Alert;
-
+use Storage;
 class ProdukController extends Controller
 {
     /**
@@ -34,21 +34,26 @@ class ProdukController extends Controller
     {
         $this->validate($request, [
             'name' => 'required',
-            'slug' => 'required',
-            'dest' => 'required',
-            'price' => 'required',
+            'deskripsi' => 'required',
+            'harga' => 'required',
             'stock' => 'required',
-            'id_kategori' => 'required|exists:kategoris,id'
+            'id_kategori' => 'required|exists:kategoris,id',
+            'image' => 'required|image|mimes:jpeg,jpg,png|max:2048',
+
         ]);
 
         $produk = new Produk;
         $produk->name = $request->name;
-        $produk->slug = $request->slug;
-        $produk->dest = $request->dest;
-        $produk->price = $request->price;
+        $produk->deskripsi = $request->deskripsi;
+        $produk->harga = $request->harga;
         $produk->stock = $request->stock;
         $produk->id_kategori = $request->id_kategori;
-        $produk->save();
+         // upload image
+         $image = $request->file('image');
+         $image->storeAs('public/produk', $image->hashName());
+         $produk->image = $image->hashName();
+         $produk->save();
+         return redirect()->route('produk.index');
 
         Alert::success('Sukses', 'Data Berhasil Disimpan')->autoClose(3000);
         return redirect()->route('produk.index')->with('success', 'Data berhasil ditambahkan');
@@ -59,7 +64,7 @@ class ProdukController extends Controller
      */
     public function show(Produk $produk)
     {
-        //
+
     }
 
     /**
@@ -78,22 +83,35 @@ class ProdukController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required',
-            'slug' => 'required',
-            'dest' => 'required',
-            'price' => 'required',
-            'stock' => 'required',
-            'id_kategori' => 'required|exists:kategoris,id'
+            'deskripsi' => 'required',
+            'harga' => 'required|numeric',
+            'stock' => 'required|integer',
+            'id_kategori' => 'required|exists:kategoris,id',
+            'image' => 'nullable|image|mimes:jpeg,jpg,png|max:2048',
         ]);
 
-        $produk->name = $request->name;
-        $produk->slug = $request->slug;
-        $produk->dest = $request->dest;
-        $produk->price = $request->price;
-        $produk->stock = $request->stock;
-        $produk->id_kategori = $request->id_kategori;
-        $produk->save();
 
-        return redirect()->route('produk.index');
+        $produk->name = $request->name;
+    $produk->deskripsi = $request->deskripsi;
+    $produk->harga = (int) $request->harga; // Ensure harga is an integer
+    $produk->stock = (int) $request->stock; // Ensure stock is an integer
+    $produk->id_kategori = $request->id_kategori;
+
+    // upload image
+    if ($request->hasFile('image')) {
+        $image = $request->file('image');
+        $image->storeAs('public/produk', $image->hashName());
+
+        // delete old image
+        Storage::delete('public/produk/' . $produk->image);
+
+        $produk->image = $image->hashName();
+    }
+
+    $produk->save();
+
+    Alert::success('Sukses', 'Data Berhasil Diperbarui')->autoClose(3000);
+    return redirect()->route('produk.index')->with('success', 'Data berhasil diperbarui');
     }
 
     /**
@@ -101,8 +119,12 @@ class ProdukController extends Controller
      */
     public function destroy(Produk $produk)
     {
+        // delete the product's image
+        Storage::delete('public/produk/' . $produk->image);
+
         $produk->delete();
-        Alert::success('Sukses', 'Data Berhasil Dihapus')->autoClose(3000);
+
+        Alert::success('Success', 'Data Berhasil di hapus')->autoClose(3000);
         return redirect()->route('produk.index')->with('success', 'Data berhasil dihapus');
     }
 }

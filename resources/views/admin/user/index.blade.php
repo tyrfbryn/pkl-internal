@@ -2,99 +2,95 @@
 
 
 @section('styles')
-<link href="{{asset('assets/plugins/datatable/css/dataTables.bootstrap5.min.css" rel="stylesheet')}}" />
+<link rel="stylesheet" href="{{asset('vendors/feather/feather.css')}}">
+  <link rel="stylesheet" href="{{asset('vendors/ti-icons/css/themify-icons.css')}}">
+  <link rel="stylesheet" href="{{asset('vendors/css/vendor.bundle.base.css')}}">
+  <!-- endinject -->
+  <!-- Plugin css for this page -->
+  <!-- End plugin css for this page -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="{{asset('css/vertical-layout-light/style.css')}}">
+  <!-- endinject -->
+  <link rel="shortcut icon" href="{{asset('images/favicon.png')}}" />
 @endsection
 
 
 @section('content')
 
-
-<div class="page-breadcrumb d-none d-sm-flex align-items-center mb-3">
-    <div class="breadcrumb-title pe-3">Dashboard</div>
-    <div class="ps-3">
-        <nav aria-label="breadcrumb">
-            <ol class="breadcrumb mb-0 p-0">
-                <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
-                </li>
-                <li class="breadcrumb-item active" aria-current="page">Data Table</li>
-            </ol>
-        </nav>
-    </div>
-    <div class="ms-auto">
-        <div class="btn-group">
-            <a href="{{route('user.create')}}" class="btn btn-primary">Add Data</a>
-        </div>
-    </div>
-</div>
-<!--end breadcrumb-->
-
-<h6 class="mb-0 text-uppercase">DataTable Example</h6>
-<hr>
-<div class="card">
-    <div class="card-body">
-        <div class="table-responsive">
-            <table id="example" class="table table-striped table-bordered" style="width:100%">
-                <thead>
-                    <tr>
-                        <th>No</th>
-                        <th>Name</th>
-                        <th>email</th>
-                        <th>status</th>
-                        <th>opsi</th>
-
-                        {{-- <th>Salary</th> --}}
+<div class="col-lg-12 grid-margin stretch-card">
+    <div class="card">
+      <div class="card-body">
+        <h4 class="card-title">Bordered table</h4>
+        <p class="card-description">
+          Add class <code>.table-bordered</code>
+        </p>
+        <div class="table-responsive pt-3">
+          <table class="table table-bordered">
+            <thead>
+              <tr>
+                <th>No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Status</th>
+                <th>Opsi</th>
+              </tr>
+            </thead>
+            <tbody>
+                @php $no = 1; @endphp
+                @foreach ($users as $data)
+                @if($loop->first)
+                <tr>
+                        <td>{{$no++}}</td>
+                        <td>{{$data->name}}</td>
+                        <td>{{$data->email}}</td>
+                        <td>{{$data->isAdmin == 1 ? 'Admin' : 'User'}}</td>
+                        <td>
+                           <button class="btn btn-sm btn-danger" disabled>Can't Delete</button>
+                        </td>
                     </tr>
-                </thead>
-                <tbody>
-                    @php $no = 1; @endphp
-                    @foreach ($users as $data)
-                    @if($loop->first)
+                    @else
+
                     <tr>
-                            <td>{{$no++}}</td>
-                            <td>{{$data->name}}</td>
-                            <td>{{$data->email}}</td>
-                            <td>{{$data->isAdmin == 1 ? 'Admin' : 'User'}}</td>
-                            <td>
-                               <button class="btn btn-sm btn-danger" disabled>Can't Delete</button>
-                            </td>
-                        </tr>
-                        @else
+                        <td>{{$no++}}</td>
+                        <td>{{$data->name}}</td>
+                        <td>{{$data->email}}</td>
+                        <td>{{$data->isAdmin == 1 ? 'Admin' : 'User'}}</td>
+                        <td>
+                            <form action="{{route('user.destroy', $data->id)}}" method="post">
+                                @csrf
+                                @method('DELETE')
+                                <a href="{{route('user.edit', $data->id)}}" class="btn btn-warning">
+                                    Edit
+                                </a>
+                                <button href="{{route('user.destroy', $data->id)}}" class="btn btn-danger" data-confirm-delete="true">
+                                    Delete
+                                </button>
+                            </form>
+                        </td>
+                    </tr>
+                    @endif
+                    @endforeach
 
-                        <tr>
-                            <td>{{$no++}}</td>
-                            <td>{{$data->name}}</td>
-                            <td>{{$data->email}}</td>
-                            <td>{{$data->isAdmin == 1 ? 'Admin' : 'User'}}</td>
-                            <td>
-                                <form action="{{route('user.destroy', $data->id)}}" method="post">
-                                    @csrf
-                                    @method('DELETE')
-                                    <a href="{{route('user.edit', $data->id)}}" class="btn btn-warning">
-                                        Edit
-                                    </a>
-                                    <a href="{{route('user.destroy', $data->id)}}" class="btn btn-danger" data-confirm-delete="true">
-                                        Delete
-                                    </a>
-                                </form>
-                            </td>
-                        </tr>
-                        @endif
-                        @endforeach
-
-                </tbody>
-            </table>
-        </div>
+            </tbody>
+        </table>
     </div>
 </div>
+</div>
 
-
-@endsection
+  @endsection
 
 
 @push('scripts')
-<script src="{{asset('assets/plugins/datatable/js/jquery.dataTables.min.js')}}"></script>
-<script src="{{asset('assets/plugins/datatable/js/dataTables.bootstrap5.min.js')}}"></script>
-<script>
+<script src="{{asset('vendors/js/vendor.bundle.base.js')}}"></script>
+  <!-- endinject -->
+  <!-- Plugin js for this page -->
+  <!-- End plugin js for this page -->
+  <!-- inject:js -->
+  <script src="{{asset('js/off-canvas.js')}}"></script>
+  <script src="{{asset('js/hoverable-collapse.js')}}"></script>
+  <script src="{{asset('js/template.js')}}"></script>
+  <script src="{{asset('js/settings.js')}}"></script>
+  <script src="{{asset('js/todolist.js')}}"></script>
     $(document).ready(function() {
         $('#example').DataTable();
     } );

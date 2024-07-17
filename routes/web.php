@@ -2,14 +2,15 @@
 
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\FrontControllers;
+use App\Http\Controllers\FrontController;
 use App\Http\Controllers\KategorisController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\OrderController;
 use App\Http\Middleware\IsAdmin;
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
 
 Auth::routes();
 
@@ -27,6 +28,7 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
     Route::resource('user', App\Http\Controllers\UserController::class);
     Route::resource('kategori', App\Http\Controllers\KategoriController::class);
     Route::resource('produk', App\Http\Controllers\ProdukController::class);
+    Route::resource('order', App\Http\Controllers\OrderController::class);
 });
 
 // // Route Admin(Backend)
@@ -37,13 +39,8 @@ Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name
 // });
 
 // cek template front
-Route::get('tes', function () {
-    return view('layouts.front');
-});
+Route::get('/', [FrontController::class, 'index']);
 
-Route::get('index', function () {
-    return view('index');
-});
 Route::get('contact', function () {
     return view('contact');
 });
@@ -59,8 +56,8 @@ Route::get('checkout', function () {
     return view('checkout');
 });
 
-Route::get('track', function () {
-    return view('track');
+Route::get('single', function () {
+    return view('single');
 });
 
 Route::get('about', function () {

@@ -16,7 +16,7 @@ class kategori extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'nama',
+        'kategori',
         'deskripsi',
     ];
 }

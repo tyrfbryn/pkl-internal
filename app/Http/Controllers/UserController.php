@@ -2,18 +2,18 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
 use Illuminate\Http\Request;
+use App\Models\User;
 Use Alert;
 class UserController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
     public function index()
     {
         $users = User::all();
-        confirmDelete("Delete", "Are you sure?");
+        $title = 'Delete User!';
+        $text = "Are you sure you want to delete?";
+        confirmDelete($title, $text);
         return view('admin.user.index', compact('users'));
     }
 
@@ -31,23 +31,24 @@ class UserController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-    'name' => 'required',
-    'email' => 'required',
-    'password' => 'required',
-    'isAdmin' => 'required|boolean',
-]);
+    $this->validate($request, [
+        'name' => 'required',
+        'email' => 'required',
+        'password' => 'required',
+        'isAdmin' => 'required|boolean',
+    ]);
 
-       $user = new user;
-        $user->name = $request->name;
-        $user->email = $request->email;
-        $user->password = $request->password;
-        $user->isAdmin = $request->isAdmin;
+           $user = new user;
+            $user->name = $request->name;
+            $user->email = $request->email;
+            $user->password = $request->password;
+            $user->isAdmin = $request->isAdmin;
 
-        $user->save();
-        Alert::success('Success Title', 'Success Message')->autoClose(3000);
-        return redirect()->route('user.index')->with('success','data berhasil di tambahkan');
-    }
+            $user->save();
+            Alert::success('Success', 'Data Berhasil di simpan')->autoClose(3000);
+            return redirect()->route('user.index')->with('success','data berhasil di tambahkan');
+        }
+
     /**
      * Display the specified resource.
      */
@@ -89,11 +90,12 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy($id)
     {
         $user = user::FindOrFail($id);
 
         $user->delete();
+        Alert::success('Success', 'Data Berhasil di hapus')->autoClose(3000);
         return redirect()->route('user.index')->with('success', 'data berhasil di hapus');
     }
 }

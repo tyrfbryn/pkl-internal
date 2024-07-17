@@ -1,282 +1,287 @@
 <!doctype html>
-<html lang="en" data-bs-theme="blue-theme">
-
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Maxton | Bootstrap 5 Admin Dashboard Template</title>
-  <!--favicon-->
-  <link rel="icon" href="{{asset('assets/images/favicon-32x32.png')}}" type="image/png">
-  <!-- loader-->
-	<link href="{{asset('assets/css/pace.min.css')}}" rel="stylesheet">
-	<script src="{{asset('assets/js/pace.min.js')}}"></script>
-
-  <!--plugins-->
-  <link href="{{asset('assets/plugins/perfect-scrollbar/css/perfect-scrollbar.css')}}" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/plugins/metismenu/metisMenu.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/plugins/metismenu/mm-vertical.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('assets/plugins/simplebar/css/simplebar.css')}}">
-  <!--bootstrap css-->
-  <link href="{{asset('assets/css/bootstrap.min.css')}}" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
-  <link href="https://fonts.googleapis.com/css?family=Material+Icons+Outlined" rel="stylesheet">
-  <!--main css-->
-  <link href="{{asset('assets/css/bootstrap-extended.css')}}" rel="stylesheet">
-  <link href="{{asset('sass/main.css')}}" rel="stylesheet">
-  <link href="{{asset('sass/dark-theme.css')}}" rel="stylesheet">
-  <link href="{{asset('sass/blue-theme.css')}}" rel="stylesheet">
-  <link href="{{asset('sass/semi-dark.css')}}" rel="stylesheet">
-  <link href="{{asset('sass/bordered-theme.css')}}" rel="stylesheet">
-  <link href="{{asset('sass/responsive.css')}}" rel="stylesheet">
-    @yield('styles')
-</head>
-
-<body>
-
-  <!--start header-->
-  @include('layouts.admin.navbar')
-  <!--end top header-->
-
-
-   <!--start sidebar-->
-  @include('layouts.admin.sidebar')
-<!--end sidebar-->
-
-  <!--start main wrapper-->
-  <main class="main-wrapper">
-    <div class="main-content">
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="favicon.ico">
+    <title>Tiny Dashboard - A Bootstrap Dashboard Template</title>
+    <!-- Simple bar CSS -->
+    <link rel="stylesheet" href="{{asset('css/simplebar.css')}}">
+    <!-- Fonts CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Overpass:ital,wght@0,100;0,200;0,300;0,400;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+    <!-- Icons CSS -->
+    <link rel="stylesheet" href="{{asset('css/feather.css')}}">
+    <link rel="stylesheet" href="{{asset('css/select2.css')}}">
+    <link rel="stylesheet" href="{{asset('css/dropzone.css')}}">
+    <link rel="stylesheet" href="{{asset('css/uppy.min.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.steps.css')}}">
+    <link rel="stylesheet" href="{{asset('css/jquery.timepicker.css')}}">
+    <link rel="stylesheet" href="{{asset('css/quill.snow.css')}}">
+    <!-- Date Range Picker CSS -->
+    <link rel="stylesheet" href="{{asset('css/daterangepicker.css')}}">
+    <!-- App CSS -->
+    <link rel="stylesheet" href="{{asset('css/app-light.css')}}" id="lightTheme" disabled>
+    <link rel="stylesheet" href="{{asset('css/app-dark.css')}}" id="darkTheme">
+  </head>
+  <body class="vertical  dark  ">
+    <div class="wrapper">
+      @include('layouts.admin.navbar')
+      <aside class="sidebar-left border-right bg-white shadow" id="leftSidebar" data-simplebar>
+        @include('layouts.admin.sidebar')
+      </aside>
+      <main role="main" class="main-content">
         @yield('content')
-    </div>
-  </main>
-  <!--end main wrapper-->
+      </main> <!-- main -->
+    </div> <!-- .wrapper -->
+    <script src="{{asset('js/jquery.min.js')}}"></script>
+    <script src="{{asset('js/popper.min.js')}}"></script>
+    <script src="{{asset('js/moment.min.js')}}"></script>
+    <script src="{{asset('js/bootstrap.min.js')}}"></script>
+    <script src="{{asset('js/simplebar.min.js')}}"></script>
+    <script src='js/daterangepicker.js'></script>
+    <script src='js/jquery.stickOnScroll.js'></script>
+    <script src="{{asset('js/tinycolor-min.js')}}"></script>
+    <script src="{{asset('js/config.js')}}"></script>
+    <script src="{{asset('js/d3.min.js')}}"></script>
+    <script src="{{asset('js/topojson.min.js')}}"></script>
+    <script src="{{asset('js/datamaps.all.min.js')}}"></script>
+    <script src="{{asset('js/datamaps-zoomto.js')}}"></script>
+    <script src="{{asset('js/datamaps.custom.js')}}"></script>
+    <script src="{{asset('js/Chart.min.js')}}"></script>
+    <script>
+      /* defind global options */
+      Chart.defaults.global.defaultFontFamily = base.defaultFontFamily;
+      Chart.defaults.global.defaultFontColor = colors.mutedColor;
+    </script>
+    <script src="{{asset('js/gauge.min.js')}}"></script>
+    <script src="{{asset('js/jquery.sparkline.min.js')}}"></script>
+    <script src="{{asset('js/apexcharts.min.js')}}"></script>
+    <script src="{{asset('js/apexcharts.custom.js')}}"></script>
+    <script src='js/jquery.mask.min.js'></script>
+    <script src='js/select2.min.js'></script>
+    <script src='js/jquery.steps.min.js'></script>
+    <script src='js/jquery.validate.min.js'></script>
+    <script src='js/jquery.timepicker.js'></script>
+    <script src='js/dropzone.min.js'></script>
+    <script src='js/uppy.min.js'></script>
+    <script src='js/quill.min.js'></script>
+    <script>
+      $('.select2').select2(
+      {
+        theme: 'bootstrap4',
+      });
+      $('.select2-multi').select2(
+      {
+        multiple: true,
+        theme: 'bootstrap4',
+      });
+      $('.drgpicker').daterangepicker(
+      {
+        singleDatePicker: true,
+        timePicker: false,
+        showDropdowns: true,
+        locale:
+        {
+          format: 'MM/DD/YYYY'
+        }
+      });
+      $('.time-input').timepicker(
+      {
+        'scrollDefault': 'now',
+        'zindex': '9999' /* fix modal open */
+      });
+      /** date range picker */
+      if ($('.datetimes').length)
+      {
+        $('.datetimes').daterangepicker(
+        {
+          timePicker: true,
+          startDate: moment().startOf('hour'),
+          endDate: moment().startOf('hour').add(32, 'hour'),
+          locale:
+          {
+            format: 'M/DD hh:mm A'
+          }
+        });
+      }
+      var start = moment().subtract(29, 'days');
+      var end = moment();
 
-  <!--start overlay-->
-     <div class="overlay btn-toggle"></div>
-  <!--end overlay-->
+      function cb(start, end)
+      {
+        $('#reportrange span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+      }
+      $('#reportrange').daterangepicker(
+      {
+        startDate: start,
+        endDate: end,
+        ranges:
+        {
+          'Today': [moment(), moment()],
+          'Yesterday': [moment().subtract(1, 'days'), moment().subtract(1, 'days')],
+          'Last 7 Days': [moment().subtract(6, 'days'), moment()],
+          'Last 30 Days': [moment().subtract(29, 'days'), moment()],
+          'This Month': [moment().startOf('month'), moment().endOf('month')],
+          'Last Month': [moment().subtract(1, 'month').startOf('month'), moment().subtract(1, 'month').endOf('month')]
+        }
+      }, cb);
+      cb(start, end);
+      $('.input-placeholder').mask("00/00/0000",
+      {
+        placeholder: "__/__/____"
+      });
+      $('.input-zip').mask('00000-000',
+      {
+        placeholder: "____-___"
+      });
+      $('.input-money').mask("#.##0,00",
+      {
+        reverse: true
+      });
+      $('.input-phoneus').mask('(000) 000-0000');
+      $('.input-mixed').mask('AAA 000-S0S');
+      $('.input-ip').mask('0ZZ.0ZZ.0ZZ.0ZZ',
+      {
+        translation:
+        {
+          'Z':
+          {
+            pattern: /[0-9]/,
+            optional: true
+          }
+        },
+        placeholder: "___.___.___.___"
+      });
+      // editor
+      var editor = document.getElementById('editor');
+      if (editor)
+      {
+        var toolbarOptions = [
+          [
+          {
+            'font': []
+          }],
+          [
+          {
+            'header': [1, 2, 3, 4, 5, 6, false]
+          }],
+          ['bold', 'italic', 'underline', 'strike'],
+          ['blockquote', 'code-block'],
+          [
+          {
+            'header': 1
+          },
+          {
+            'header': 2
+          }],
+          [
+          {
+            'list': 'ordered'
+          },
+          {
+            'list': 'bullet'
+          }],
+          [
+          {
+            'script': 'sub'
+          },
+          {
+            'script': 'super'
+          }],
+          [
+          {
+            'indent': '-1'
+          },
+          {
+            'indent': '+1'
+          }], // outdent/indent
+          [
+          {
+            'direction': 'rtl'
+          }], // text direction
+          [
+          {
+            'color': []
+          },
+          {
+            'background': []
+          }], // dropdown with defaults from theme
+          [
+          {
+            'align': []
+          }],
+          ['clean'] // remove formatting button
+        ];
+        var quill = new Quill(editor,
+        {
+          modules:
+          {
+            toolbar: toolbarOptions
+          },
+          theme: 'snow'
+        });
+      }
+      // Example starter JavaScript for disabling form submissions if there are invalid fields
+      (function()
+      {
+        'use strict';
+        window.addEventListener('load', function()
+        {
+          // Fetch all the forms we want to apply custom Bootstrap validation styles to
+          var forms = document.getElementsByClassName('needs-validation');
+          // Loop over them and prevent submission
+          var validation = Array.prototype.filter.call(forms, function(form)
+          {
+            form.addEventListener('submit', function(event)
+            {
+              if (form.checkValidity() === false)
+              {
+                event.preventDefault();
+                event.stopPropagation();
+              }
+              form.classList.add('was-validated');
+            }, false);
+          });
+        }, false);
+      })();
+    </script>
+    <script>
+      var uptarg = document.getElementById('drag-drop-area');
+      if (uptarg)
+      {
+        var uppy = Uppy.Core().use(Uppy.Dashboard,
+        {
+          inline: true,
+          target: uptarg,
+          proudlyDisplayPoweredByUppy: false,
+          theme: 'dark',
+          width: 770,
+          height: 210,
+          plugins: ['Webcam']
+        }).use(Uppy.Tus,
+        {
+          endpoint: 'https://master.tus.io/files/'
+        });
+        uppy.on('complete', (result) =>
+        {
+          console.log('Upload complete! We’ve uploaded these files:', result.successful)
+        });
+      }
+    </script>
+    <script src="{{asset('js/apps.js')}}"></script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-56159088-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
 
-   <!--start footer-->
-   <footer class="page-footer">
-    <p class="mb-0">Copyright © 2024. All right reserved.</p>
-  </footer>
-  <!--end footer-->
-
-  <!--start cart-->
-  <div class="offcanvas offcanvas-end" tabindex="-1" id="offcanvasCart">
-    <div class="offcanvas-header border-bottom h-70">
-      <h5 class="mb-0" id="offcanvasRightLabel">8 New Orders</h5>
-      <a href="javascript:;" class="primaery-menu-close" data-bs-dismiss="offcanvas">
-        <i class="material-icons-outlined">close</i>
-      </a>
-    </div>
-    <div class="offcanvas-body p-0">
-      <div class="order-list">
-        <div class="order-item d-flex align-items-center gap-3 p-3 border-bottom">
-          <div class="order-img">
-            <img src="https://placehold.co/200x150/png" class="img-fluid rounded-3" width="75" alt="">
-          </div>
-          <div class="order-info flex-grow-1">
-            <h5 class="mb-1 order-title">White Men Shoes</h5>
-            <p class="mb-0 order-price">$289</p>
-          </div>
-          <div class="d-flex">
-            <a class="order-delete"><span class="material-icons-outlined">delete</span></a>
-            <a class="order-delete"><span class="material-icons-outlined">visibility</span></a>
-          </div>
-        </div>
-
-        <div class="order-item d-flex align-items-center gap-3 p-3 border-bottom">
-          <div class="order-img">
-            <img src="https://placehold.co/200x150/png" class="img-fluid rounded-3" width="75" alt="">
-          </div>
-          <div class="order-info flex-grow-1">
-            <h5 class="mb-1 order-title">Red Airpods</h5>
-            <p class="mb-0 order-price">$149</p>
-          </div>
-          <div class="d-flex">
-            <a class="order-delete"><span class="material-icons-outlined">delete</span></a>
-            <a class="order-delete"><span class="material-icons-outlined">visibility</span></a>
-          </div>
-        </div>
-
-        <div class="order-item d-flex align-items-center gap-3 p-3 border-bottom">
-          <div class="order-img">
-            <img src="https://placehold.co/200x150/png" class="img-fluid rounded-3" width="75" alt="">
-          </div>
-          <div class="order-info flex-grow-1">
-            <h5 class="mb-1 order-title">Men Polo Tshirt</h5>
-            <p class="mb-0 order-price">$139</p>
-          </div>
-          <div class="d-flex">
-            <a class="order-delete"><span class="material-icons-outlined">delete</span></a>
-            <a class="order-delete"><span class="material-icons-outlined">visibility</span></a>
-          </div>
-        </div>
-
-        <div class="order-item d-flex align-items-center gap-3 p-3 border-bottom">
-          <div class="order-img">
-            <img src="https://placehold.co/200x150/png" class="img-fluid rounded-3" width="75" alt="">
-          </div>
-          <div class="order-info flex-grow-1">
-            <h5 class="mb-1 order-title">Blue Jeans Casual</h5>
-            <p class="mb-0 order-price">$485</p>
-          </div>
-          <div class="d-flex">
-            <a class="order-delete"><span class="material-icons-outlined">delete</span></a>
-            <a class="order-delete"><span class="material-icons-outlined">visibility</span></a>
-          </div>
-        </div>
-
-        <div class="order-item d-flex align-items-center gap-3 p-3 border-bottom">
-          <div class="order-img">
-            <img src="https://placehold.co/200x150/png" class="img-fluid rounded-3" width="75" alt="">
-          </div>
-          <div class="order-info flex-grow-1">
-            <h5 class="mb-1 order-title">Fancy Shirts</h5>
-            <p class="mb-0 order-price">$758</p>
-          </div>
-          <div class="d-flex">
-            <a class="order-delete"><span class="material-icons-outlined">delete</span></a>
-            <a class="order-delete"><span class="material-icons-outlined">visibility</span></a>
-          </div>
-        </div>
-
-        <div class="order-item d-flex align-items-center gap-3 p-3 border-bottom">
-          <div class="order-img">
-            <img src="https://placehold.co/200x150/png" class="img-fluid rounded-3" width="75" alt="">
-          </div>
-          <div class="order-info flex-grow-1">
-            <h5 class="mb-1 order-title">Home Sofa Set </h5>
-            <p class="mb-0 order-price">$546</p>
-          </div>
-          <div class="d-flex">
-            <a class="order-delete"><span class="material-icons-outlined">delete</span></a>
-            <a class="order-delete"><span class="material-icons-outlined">visibility</span></a>
-          </div>
-        </div>
-
-        <div class="order-item d-flex align-items-center gap-3 p-3 border-bottom">
-          <div class="order-img">
-            <img src="https://placehold.co/200x150/png" class="img-fluid rounded-3" width="75" alt="">
-          </div>
-          <div class="order-info flex-grow-1">
-            <h5 class="mb-1 order-title">Black iPhone</h5>
-            <p class="mb-0 order-price">$1049</p>
-          </div>
-          <div class="d-flex">
-            <a class="order-delete"><span class="material-icons-outlined">delete</span></a>
-            <a class="order-delete"><span class="material-icons-outlined">visibility</span></a>
-          </div>
-        </div>
-
-        <div class="order-item d-flex align-items-center gap-3 p-3 border-bottom">
-          <div class="order-img">
-            <img src="https://placehold.co/200x150/png" class="img-fluid rounded-3" width="75" alt="">
-          </div>
-          <div class="order-info flex-grow-1">
-            <h5 class="mb-1 order-title">Goldan Watch</h5>
-            <p class="mb-0 order-price">$689</p>
-          </div>
-          <div class="d-flex">
-            <a class="order-delete"><span class="material-icons-outlined">delete</span></a>
-            <a class="order-delete"><span class="material-icons-outlined">visibility</span></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="offcanvas-footer h-70 p-3 border-top">
-      <div class="d-grid">
-        <button type="button" class="btn btn-grd btn-grd-primary" data-bs-dismiss="offcanvas">View Products</button>
-      </div>
-    </div>
-  </div>
-  <!--end cart-->
-
-
-
-  <!--start switcher-->
-  <button class="btn btn-grd btn-grd-primary position-fixed bottom-0 end-0 m-3 d-flex align-items-center gap-2" type="button" data-bs-toggle="offcanvas" data-bs-target="#staticBackdrop">
-    <i class="material-icons-outlined">tune</i>Customize
-  </button>
-
-  <div class="offcanvas offcanvas-end" data-bs-scroll="true" tabindex="-1" id="staticBackdrop">
-    <div class="offcanvas-header border-bottom h-70">
-      <div class="">
-        <h5 class="mb-0">Theme Customizer</h5>
-        <p class="mb-0">Customize your theme</p>
-      </div>
-      <a href="javascript:;" class="primaery-menu-close" data-bs-dismiss="offcanvas">
-        <i class="material-icons-outlined">close</i>
-      </a>
-    </div>
-    <div class="offcanvas-body">
-      <div>
-        <p>Theme variation</p>
-
-        <div class="row g-3">
-          <div class="col-12 col-xl-6">
-            <input type="radio" class="btn-check" name="theme-options" id="BlueTheme" checked>
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="BlueTheme">
-              <span class="material-icons-outlined">contactless</span>
-              <span>Blue</span>
-            </label>
-          </div>
-          <div class="col-12 col-xl-6">
-            <input type="radio" class="btn-check" name="theme-options" id="LightTheme">
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="LightTheme">
-              <span class="material-icons-outlined">light_mode</span>
-              <span>Light</span>
-            </label>
-          </div>
-          <div class="col-12 col-xl-6">
-            <input type="radio" class="btn-check" name="theme-options" id="DarkTheme">
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="DarkTheme">
-              <span class="material-icons-outlined">dark_mode</span>
-              <span>Dark</span>
-            </label>
-          </div>
-          <div class="col-12 col-xl-6">
-            <input type="radio" class="btn-check" name="theme-options" id="SemiDarkTheme">
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="SemiDarkTheme">
-              <span class="material-icons-outlined">contrast</span>
-              <span>Semi Dark</span>
-            </label>
-          </div>
-          <div class="col-12 col-xl-6">
-            <input type="radio" class="btn-check" name="theme-options" id="BoderedTheme">
-            <label class="btn btn-outline-secondary d-flex flex-column gap-1 align-items-center justify-content-center p-4" for="BoderedTheme">
-              <span class="material-icons-outlined">border_style</span>
-              <span>Bordered</span>
-            </label>
-          </div>
-        </div><!--end row-->
-
-      </div>
-    </div>
-  </div>
-  <!--start switcher-->
-
-  <!--bootstrap js-->
-  <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-
-  <!--plugins-->
-  <script src="{{asset('assets/js/jquery.min.js')}}"></script>
-  <!--plugins-->
-  <script src="{{asset('assets/plugins/perfect-scrollbar/js/perfect-scrollbar.js')}}"></script>
-  <script src="{{asset('assets/plugins/metismenu/metisMenu.min.js')}}"></script>
-  <script src="{{asset('assets/plugins/apexchart/apexcharts.min.js')}}"></script>
-  <script src="{{asset('assets/plugins/simplebar/js/simplebar.min.js')}}"></script>
-  <script src="{{asset('assets/plugins/peity/jquery.peity.min.js')}}"></script>
-  <script>
-    $(".data-attributes span").peity("donut")
-  </script>
-  <script src="{{asset('assets/js/main.js')}}"></script>
-  <script src="{{asset('assets/js/dashboard1.js')}}"></script>
-  <script>
-	   new PerfectScrollbar(".user-list")
-  </script>
-@stack('script')
-@include('sweetalert::alert')
-
-</body>
-
+      function gtag()
+      {
+        dataLayer.push(arguments);
+      }
+      gtag('js', new Date());
+      gtag('config', 'UA-56159088-1');
+    </script>
+  </body>
 </html>

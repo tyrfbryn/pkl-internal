@@ -3,12 +3,16 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Produk;
+use App\Models\kategori;
 
 class FrontController extends Controller //conroler aowkaokwoakw
 {
     public function index()
     {
-        return view('index');
+        $kategori = Kategori::all();
+        $produk = Produk::all();
+        return view('index', compact('produk', 'kategori'));
     }
 
     public function contact()
@@ -21,9 +25,9 @@ class FrontController extends Controller //conroler aowkaokwoakw
         return view('shop');
     }
 
-    public function track()
+    public function single()
     {
-        return view('track');
+        return view('single');
     }
 
     public function checkout()
@@ -45,4 +49,6 @@ class FrontController extends Controller //conroler aowkaokwoakw
     {
         return view('about');
     }
+
+
 }

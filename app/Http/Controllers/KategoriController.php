@@ -32,12 +32,12 @@ class KategoriController extends Controller
     public function store(Request $request)
     {
     $this->validate($request, [
-        'nama' => 'required',
+        'kategori' => 'required',
         'deskripsi' => 'required',
     ]);
 
            $kategori = new Kategori;
-            $kategori->nama = $request->nama;
+            $kategori->kategori = $request->kategori;
             $kategori->deskripsi = $request->deskripsi;
             $kategori->save();
             Alert::success('Success', 'Data Berhasil di simpan')->autoClose(3000);
@@ -58,7 +58,7 @@ class KategoriController extends Controller
     public function edit(string $id)
     {
         $kategori = Kategori::findOrFail($id);
-        return view('admin.user.kategori.edit', compact('kategori'));
+        return view('admin.kategori.edit', compact('kategori'));
     }
 
     /**
@@ -67,12 +67,12 @@ class KategoriController extends Controller
     public function update(Request $request, string $id)
     {
         $validated = $request->validate([
-             'nama' => 'required',
+             'kategori' => 'required',
              'deskripsi' => 'required',
          ]);
 
          $kategori = Kategori::findOrFail($id);
-         $kategori->nama = $request->nama;
+         $kategori->kategori = $request->kategori;
          $kategori->deskripsi = $request->deskripsi;
          $kategori->save();
          return redirect()->route('kategori.index');

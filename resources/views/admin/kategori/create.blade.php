@@ -11,7 +11,6 @@
             <ol class="breadcrumb mb-0 p-0">
                 <li class="breadcrumb-item"><a href="javascript:;"><i class="bx bx-home-alt"></i></a>
                 </li>
-                <li class="breadcrumb-item active" aria-current="page">Admin</li>
             </ol>
         </nav>
     </div>
@@ -26,18 +25,16 @@
                     <div class="float-start">
                         <h5>kategori</h5>
                     </div>
-                    <div class="float-end">
-                        <a href="{{ route('kategori.index') }}" class="btn btn-grd-primary px-4">Kembali</a>
-                    </div>
+
                 </div>
 
                 <div class="card-body">
                     <form action="{{ route('kategori.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-2">
-                            <label class="form-label">nama</label>
-                            <input type="text" class="form-control @error('kategori') is-invalid @enderror" name="nama"
-                            value="{{ old('kategori') }}" placeholder="nama" required>
+                            <label class="form-label">kategori</label>
+                            <input type="text" class="form-control @error('kategori') is-invalid @enderror" name="kategori"
+                            value="{{ old('kategori') }}" placeholder="kategori" required>
                             @error('kategori')
                                 <span class="invalid-feedback" role="alert">
                                     <strong>{{ $message }}</strong>
@@ -56,7 +53,11 @@
                         </div>
 
 
-                    <button type="submit" class="btn btn-grd-royal px-4">Simpan</button>
+
+                    <div class="float-end mt-2">
+                        <button type="submit" class="btn btn-primary">Simpan</button>
+                        <a href="{{ route('kategori.index') }}" class="btn btn-primary">Kembali</a>
+                    </div>
                     </form>
                 </div>
             </div>

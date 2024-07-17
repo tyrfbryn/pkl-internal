@@ -1,106 +1,86 @@
 @extends('layouts.front')
 @section('content')
-
-<!-- breadcrumb-area -->
-<section class="breadcrumb_area pt-60 pb-60 tp-breadcrumb_bg" data-background="{{asset('front/assets/img/banner/breadcrumb-01.jpg')}}">
+<section class="section-margin--small">
     <div class="container">
-       <div class="row align-items-center">
-          <div class="col-xl-7 col-lg-12 col-md-12 col-12">
-             <div class="tp-breadcrumb">
-                <div class="tp-breadcrumb__link mb-10">
-                   <span class="breadcrumb-item-active"><a href="index.html">Home</a></span>
-                   <span>Contact</span>
-                </div>
-                <h2 class="tp-breadcrumb__title">Get In Touch</h2>
-             </div>
-          </div>
-       </div>
-    </div>
- </section>
- <!-- breadcrumb-area-end -->
+      <div class="d-none d-sm-block mb-5 pb-4">
+        <div id="map" style="height: 420px;"></div>
+        <script>
+          function initMap() {
+            var uluru = {lat: -25.363, lng: 131.044};
+            var grayStyles = [
+              {
+                featureType: "all",
+                stylers: [
+                  { saturation: -90 },
+                  { lightness: 50 }
+                ]
+              },
+              {elementType: 'labels.text.fill', stylers: [{color: '#A3A3A3'}]}
+            ];
+            var map = new google.maps.Map(document.getElementById('map'), {
+              center: {lat: -31.197, lng: 150.744},
+              zoom: 9,
+              styles: grayStyles,
+              scrollwheel:  false
+            });
+          }
 
- <!-- contact-area-start -->
- <section class="contact-area pt-80 pb-80">
-    <div class="container">
-       <div class="row">
-          <div class="col-lg-4 col-12">
-             <div class="tpcontact__right mb-40">
-                <div class="tpcontact__shop mb-30">
-                   <h4 class="tpshop__title mb-25">Get In Touch</h4>
-                   <div class="tpshop__info">
-                      <ul>
-                         <li><i class="fal fa-map-marker-alt"></i> <a href="#">24/26 Strait Bargate, Boston, PE21,  United Kingdom</a></li>
-                         <li>
-                            <i class="fal fa-phone"></i>
-                            <a href="tel:0123456789">+098 (905) 786 897 8</a>
-                            <a href="tel:0123456789">6 - 146 - 389 - 5748</a>
-                         </li>
-                         <li>
-                            <i class="fal fa-clock"></i>
-                            <span>Store Hours:</span>
-                            <span>10 am - 10 pm EST, 7 days a week</span>
-                         </li>
-                      </ul>
-                   </div>
-                </div>
-                <div class="tpcontact__support">
-                   <a href="tel:0123456">Get Support On Call <i class="fal fa-headphones"></i></a>
-                   <a target="_blank" href="https://www.google.com/maps/@36.963672,-119.2249843,7.17z">Get Direction <i class="fal fa-map-marker-alt"></i></a>
-                </div>
-             </div>
-          </div>
-          <div class="col-lg-8 col-12">
-             <div class="tpcontact__form">
-                <div class="tpcontact__info mb-35">
-                   <h4 class="tpcontact__title">Make Custom Request</h4>
-                   <p>Must-have pieces selected every month want style Ideas and Treats?</p>
-                </div>
-                <form action="{{asset('front/assets/mail.php')}}" id="contact-form" method="POST">
-                   <div class="row">
-                      <div class="col-lg-6">
-                         <div class="tpcontact__input mb-20">
-                            <input name="name" type="text" placeholder="Full name" required>
-                         </div>
-                      </div>
-                      <div class="col-lg-6">
-                         <div class="tpcontact__input mb-20">
-                            <input name="email" type="email" placeholder="Email address" required>
-                         </div>
-                      </div>
-                      <div class="col-lg-6">
-                         <div class="tpcontact__input mb-20">
-                            <input name="number" type="text" placeholder="Phone number" required>
-                         </div>
-                      </div>
-                      <div class="col-lg-6">
-                         <div class="tpcontact__input mb-20">
-                            <input name="subject" type="text" placeholder="Subject" required>
-                         </div>
-                      </div>
-                      <div class="col-lg-12">
-                         <div class="tpcontact__input mb-30">
-                            <textarea name="message" placeholder="Enter message" required></textarea>
-                         </div>
-                      </div>
-                   </div>
-                   <div class="tpcontact__submit">
-                      <button class="tp-btn tp-color-btn tp-wish-cart">Get A Quote <i class="fal fa-long-arrow-right"></i></button>
-                   </div>
-                </form>
-                <p class="ajax-response mt-30"></p>
-             </div>
-          </div>
-       </div>
-    </div>
- </section>
- <!-- contact-area-end -->
+        </script>
+        <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpfS1oRGreGSBU5HHjMmQ3o5NLw7VdJ6I&callback=initMap"></script>
 
- <!-- map-area-start -->
- <div class="map-area">
-    <div class="tpshop__location-map">
-       <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d193313.696093143!2d-74.25983952323838!3d40.794422695521675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sbd!4v1663062642075!5m2!1sen!2sbd" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-    </div>
- </div>
- <!-- map-area-end -->
+      </div>
 
+
+      <div class="row">
+        <div class="col-md-4 col-lg-3 mb-4 mb-md-0">
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-home"></i></span>
+            <div class="media-body">
+              <h3>California United States</h3>
+              <p>Santa monica bullevard</p>
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-headphone"></i></span>
+            <div class="media-body">
+              <h3><a href="tel:454545654">00 (440) 9865 562</a></h3>
+              <p>Mon to Fri 9am to 6pm</p>
+            </div>
+          </div>
+          <div class="media contact-info">
+            <span class="contact-info__icon"><i class="ti-email"></i></span>
+            <div class="media-body">
+              <h3><a href="mailto:support@colorlib.com">support@colorlib.com</a></h3>
+              <p>Send us your query anytime!</p>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-8 col-lg-9">
+          <form action="#/" class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+            <div class="row">
+              <div class="col-lg-5">
+                <div class="form-group">
+                  <input class="form-control" name="name" id="name" type="text" placeholder="Enter your name">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" name="email" id="email" type="email" placeholder="Enter email address">
+                </div>
+                <div class="form-group">
+                  <input class="form-control" name="subject" id="subject" type="text" placeholder="Enter Subject">
+                </div>
+              </div>
+              <div class="col-lg-7">
+                <div class="form-group">
+                    <textarea class="form-control different-control w-100" name="message" id="message" cols="30" rows="5" placeholder="Enter Message"></textarea>
+                </div>
+              </div>
+            </div>
+            <div class="form-group text-center text-md-right mt-3">
+              <button type="submit" class="button button--active button-contactForm">Send Message</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
 @endsection
